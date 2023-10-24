@@ -38,7 +38,7 @@ def classify_email(email, blacklist):
 
 # Define the blacklist outside the blacklist function
 blacklist = ["wermink.com", "beaconmessenger.com", "lyft.live", "socam.me", "tutuapp.bid", "yogrow.co", "afia.pro", "clout.wiki",
-             "hexi.pics", "wisnick.com", "weirby.com"]
+             "hexi.pics", "wisnick.com", "weirby.com", "scubalm.com"]
 
 # Allow user input
 while True:
