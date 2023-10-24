@@ -1,0 +1,64 @@
+import re
+
+# Simulated database as a dictionary (replace this with your actual database)
+database = {
+    "user1@example.com": {},
+    "user2@example.com": {},
+    "hamdanzd@mail.uc.edu": {},
+    "zeidhamdan223@gmail.com": {},
+    "zeidhamdan76@gmail.com": {},
+    "leganiir@mail.uc.edu": {}
+}
+
+def split_email(email):
+    # Define a regular expression pattern to match an email address
+    email_pattern = r'^([a-zA-Z0-9._%+-]+)@([a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$'
+
+    # Use re.match to find the parts of the email address
+    match = re.match(email_pattern, email)
+
+    if match:
+        username, domain = match.groups()
+        return username, domain
+    else:
+        return None, None
+
+def classify_email(email, blacklist):
+    username, domain = split_email(email)
+
+    if username and domain:
+        if username + "@" + domain in database:
+            return "Legit email", username, domain
+        elif domain in blacklist:
+            return "Blacklisted email", username, domain
+        else:
+            return "Invalid email", None, None
+    else:
+        return "Invalid email address", None, None
+
+# Define the blacklist outside the blacklist function
+blacklist = ["wermink.com", "beaconmessenger.com", "lyft.live", "socam.me", "tutuapp.bid", "yogrow.co", "afia.pro", "clout.wiki",
+             "hexi.pics", "wisnick.com", "weirby.com"]
+
+# Allow user input
+while True:
+    email = input("Enter an email address (or type 'exit' to quit): ")
+    
+    if email.lower() == "exit":
+        break
+    
+    classification, username, domain = classify_email(email, blacklist)
+    
+    if classification == "Legit email":
+        print(f"Classification: {classification}")
+        print(f"Username: {username}")
+        print(f"Domain: {domain}")
+    elif classification == "Blacklisted email":
+        print(f"Classification: {classification}")
+        print(f"Username: {username}")
+        print(f"Domain: {domain}")
+        print("The email domain is blacklisted.")
+    else:
+        print(f"Classification: {classification}")
+
+          
