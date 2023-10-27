@@ -12,22 +12,25 @@ user_database = {
 
 # Database for banks
 bank_database = {
-    "bank1.com": {},
-    "bank2.com": {},
+    "nationalsales@syf.com": {},
+    "FifthThirdBank@53.com": {},
+    "international@huntington.com": {},
+    "LoanServicing@USavingsBank.com": {},
+
     # Add more banks here
 }
 
 # Database for payment companies
 payment_database = {
-    "paypal.com": {},
+    "abuse@visa.com": {},
     "stripe.com": {},
     # Add more payment companies here
 }
 
 # Database for Fortune 500 companies
 fortune_500_database = {
-    "company1.com": {},
-    "company2.com": {},
+    "service@walmartcontacts.com": {},
+    "​​msft@microsoft.com": {},
     # Add more Fortune 500 companies here
 }
 
