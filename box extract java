@@ -1,0 +1,25 @@
+// Extract email details from Gmail
+function extractEmailDetails() {
+    // Select the email element (you should be in the email view in Gmail)
+    const emailElement = document.querySelector('.gs div.adP.adO div div table tr');
+
+    if (!emailElement) {
+        console.log('No email details found.');
+        return;
+    }
+
+    // Extract details
+    const from = emailElement.querySelector('.gD').innerText;
+    const to = emailElement.querySelector('.gE').innerText;
+    const date = emailElement.querySelector('.g2').innerText;
+    const subject = emailElement.querySelector('h2.hP').innerText;
+
+    console.log('Email Details:');
+    console.log('From: ' + from);
+    console.log('To: ' + to);
+    console.log('Date: ' + date);
+    console.log('Subject: ' + subject);
+}
+
+// Run the function to extract email details
+extractEmailDetails();
