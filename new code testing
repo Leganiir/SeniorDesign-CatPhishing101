@@ -1,6 +1,6 @@
 import re
 
-# Simulated user database as a dictionary 
+# Simulated user database as a dictionary (replace this with your actual user database)
 user_database = {
     "user1@example.com": {},
     "user2@example.com": {},
@@ -18,14 +18,14 @@ bank_database = {
     "loanservicing@usavingsbank.com": {},
     "support@chime.com": {},
     "gts.client.services@jpmchase.com": {},
-    # Add more banks here
+    # Add more banks here (make sure email addresses are lowercase)
 }
 
 # Database for payment companies
 payment_database = {
     "abuse@visa.com": {},
     "stripe.com": {},
-    # Add more payment companies here 
+    # Add more payment companies here (make sure email addresses are lowercase)
 }
 
 # Database for Fortune 500 companies
@@ -33,7 +33,7 @@ fortune_500_database = {
     "service@walmartcontacts.com": {},
     "msft@microsoft.com": {},
     "orders@amazon.com": {},
-    # Add more Fortune 500 companies here 
+    # Add more Fortune 500 companies here (make sure email addresses are lowercase)
 }
 
 # Database for insurance companies
@@ -43,14 +43,14 @@ insurance_database = {
     "upload@email.progressive.com": {},
     "ims@libertymutual.com": {},
     "first.report@travelers.com": {},
-    # Add more insurance companies here 
+    # Add more insurance companies here (make sure email addresses are lowercase)
 }
 
 # Database for online shops
 online_shop_database = {
     "shop1.com": {},
     "shop2.com": {},
-    # Add more online shops here 
+    # Add more online shops here (make sure email addresses are lowercase)
 }
 
 # List of trusted email domains
@@ -73,7 +73,6 @@ trusted_domains = [
     "bluewin.ch", "skynet.be", "sympatico.ca", "windstream.net", "mac.com", "centurytel.net",
     "chello.nl", "live.ca", "aim.com", "bigpond.net.au",
 ]
-
 
 def split_email(email):
     # Strip leading and trailing spaces from the email
@@ -117,8 +116,10 @@ def classify_email(email, blacklist):
                 return "Legit but not fully trusted email", username, domain
             else:
                 return "Invalid email", username, domain
+        else:
+            return "Invalid email", None, None
     except Exception as e:
-        return "Error:", str(e)
+        return "Invalid email", None, None
 
 # Define the blacklist outside the classify_email function
 blacklist = ["wermink.com", "beaconmessenger.com", "lyft.live", "socam.me", "tutuapp.bid", "yogrow.co", "afia.pro", "clout.wiki",
