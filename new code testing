@@ -16,6 +16,7 @@ bank_database = {
     "fifththirdbank@53.com": {},
     "international@huntington.com": {},
     "loanservicing@usavingsbank.com": {},
+    "support@chime.com": {},
     # Add more banks here (make sure email addresses are lowercase)
 }
 
@@ -30,12 +31,13 @@ payment_database = {
 fortune_500_database = {
     "service@walmartcontacts.com": {},
     "msft@microsoft.com": {},
+    "orders@amazon.com": {},
     # Add more Fortune 500 companies here (make sure email addresses are lowercase)
 }
 
 # Database for insurance companies
 insurance_database = {
-    "insuranceco1.com": {},
+    "lienholderhelp@geico.com": {},
     "insuranceco2.com": {},
     # Add more insurance companies here (make sure email addresses are lowercase)
 }
