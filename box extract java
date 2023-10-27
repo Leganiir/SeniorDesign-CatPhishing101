@@ -23,3 +23,20 @@ function extractEmailDetails() {
 
 // Run the function to extract email details
 extractEmailDetails();
+
+
+
+
+
+
+###############
+To use this code:
+
+1)Open Gmail in your web browser.
+2)Select an email to view.
+3)Open the browser's developer console (usually by pressing F12 or Ctrl+Shift+I).
+4)Copy and paste the code into the console.
+5)Press Enter to run the extractEmailDetails() function.
+6)The extracted email details will be displayed in the console.
+******Please note that this code is very basic and may not work in all Gmail views or with all email structures. Developing a full-featured browser 
+extension for this task is a more robust and reliable solution but requires additional effort.
