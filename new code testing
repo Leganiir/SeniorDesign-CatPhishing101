@@ -13,42 +13,44 @@ user_database = {
 # Database for banks
 bank_database = {
     "nationalsales@syf.com": {},
-    "FifthThirdBank@53.com": {},
+    "fifththirdbank@53.com": {},
     "international@huntington.com": {},
-    "LoanServicing@USavingsBank.com": {},
-
-    # Add more banks here
+    "loanservicing@usavingsbank.com": {},
+    # Add more banks here (make sure email addresses are lowercase)
 }
 
 # Database for payment companies
 payment_database = {
     "abuse@visa.com": {},
     "stripe.com": {},
-    # Add more payment companies here
+    # Add more payment companies here (make sure email addresses are lowercase)
 }
 
 # Database for Fortune 500 companies
 fortune_500_database = {
     "service@walmartcontacts.com": {},
-    "​​msft@microsoft.com": {},
-    # Add more Fortune 500 companies here
+    "msft@microsoft.com": {},
+    # Add more Fortune 500 companies here (make sure email addresses are lowercase)
 }
 
 # Database for insurance companies
 insurance_database = {
     "insuranceco1.com": {},
     "insuranceco2.com": {},
-    # Add more insurance companies here
+    # Add more insurance companies here (make sure email addresses are lowercase)
 }
 
 # Database for online shops
 online_shop_database = {
     "shop1.com": {},
     "shop2.com": {},
-    # Add more online shops here
+    # Add more online shops here (make sure email addresses are lowercase)
 }
 
 def split_email(email):
+    # Strip leading and trailing spaces from the email
+    email = email.strip()
+
     # Define a regular expression pattern to match an email address
     email_pattern = r'^([a-zA-Z0-9._%+-]+)@([a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$'
 
@@ -62,27 +64,31 @@ def split_email(email):
         return None, None
 
 def classify_email(email, blacklist):
-    username, domain = split_email(email)
+    try:
+        username, domain = split_email(email)
 
-    if username and domain:
-        if username + "@" + domain in user_database:
-            return "Legit email", username, domain
-        elif domain in blacklist:
-            return "Blacklisted email", username, domain
-        elif domain in bank_database:
-            return "Bank email", username, domain
-        elif domain in payment_database:
-            return "Payment company email", username, domain
-        elif domain in fortune_500_database:
-            return "Fortune 500 company email", username, domain
-        elif domain in insurance_database:
-            return "Insurance company email", username, domain
-        elif domain in online_shop_database:
-            return "Online shop email", username, domain
-        else:
-            return "Invalid email", None, None
-    else:
-        return "Invalid email address", None, None
+        if username and domain:
+            # Make the comparison case-insensitive
+            lowercase_email = (username + "@" + domain).lower()
+
+            if lowercase_email in user_database:
+                return "Legit email", username, domain
+            elif domain in blacklist:
+                return "Blacklisted email", username, domain
+            elif lowercase_email in bank_database:
+                return "Bank email", username, domain
+            elif lowercase_email in payment_database:
+                return "Payment company email", username, domain
+            elif lowercase_email in fortune_500_database:
+                return "Fortune 500 company email", username, domain
+            elif lowercase_email in insurance_database:
+                return "Insurance company email", username, domain
+            elif lowercase_email in online_shop_database:
+                return "Online shop email", username, domain
+            else:
+                return "Invalid email", username, domain
+    except Exception as e:
+        return "Error:", str(e)
 
 # Define the blacklist outside the classify_email function
 blacklist = ["wermink.com", "beaconmessenger.com", "lyft.live", "socam.me", "tutuapp.bid", "yogrow.co", "afia.pro", "clout.wiki",
