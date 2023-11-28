@@ -4,13 +4,14 @@
         <title>Catphishing101</title>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+        <link rel="icon" type="image/x-icon" href="static/images/cat.jpg">
     </head>
     <body>
         <div class="Container">
             <div class="header">
                 <h1>CatPhishing101</h1>
             </div>
-            <div class="BodyContent">
+            <div class="BodyContenthelp">
                 <div class="FAQ">
                     <h2>FAQ</h2>
                     <button type="button" class="FAQCollapse">What is Phishing?</button>
@@ -23,12 +24,13 @@
                         <p>CatPhishing101 works by collecting information from emails to help determine legitimacy.<br> We examine:<br>
                             - The sender email.<br>
                             - The content of the email.<br>
+                            - The email security headers. <br>
                             We feed this information to an algorithm, which determines the likeihood of a scam email.
                         </p>
                     </div>
                     <button type="button" class="FAQCollapse">Do you collect data?</button>
                     <div class="FAQContent">
-                        <p>CatPhishing101 examines your email data, but never collects or transfers your data.</p>
+                        <p>Catphishing101 temporarily stores uploaded emails for examination. Emails never leave your machine and are deleted after examination is complete..</p>
                     </div>
                     <button type="button" class="FAQCollapse">Can I trust CatPhishing101?</button>
                     <div class="FAQContent">

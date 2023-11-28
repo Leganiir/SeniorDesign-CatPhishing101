@@ -34,6 +34,31 @@ function startCountdown() {
     }
 }
 
+function startCountdown2() {
+    let seconds = 6;
+    const countdownTextElement = document.getElementById('CountDownText');
+    const countdownDiv = document.getElementById('CountDown');
+
+    if (countdownTextElement && countdownDiv) {
+        countdownDiv.style.display = 'block';
+
+        function updateCountdown() {
+            countdownTextElement.innerText = "Processing...";
+            seconds--;
+
+            if (seconds < 0) {
+                location.reload();
+            } else {
+                setTimeout(updateCountdown, 1000);
+            }
+        }
+
+        updateCountdown();
+    } else {
+        console.error('Countdown elements not found');
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     var submitButton = document.getElementById('submit');
     submitButton.addEventListener('click', function () {

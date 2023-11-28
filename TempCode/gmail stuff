@@ -1,0 +1,55 @@
+import email
+
+def parse_email(email_text):
+    # Parse the email content
+    msg = email.message_from_string(email_text)
+
+    # Extract relevant information
+    sender = msg["from"]
+    recipient = msg["to"]
+    subject = msg["subject"]
+    date = msg["date"]
+    mailed_by = msg["mailed-by"]
+    signed_by = msg["signed-by"]
+    security = msg["security"]
+    
+    # Extract the email body
+    email_body = ""
+
+    if msg.is_multipart():
+        for part in msg.walk():
+            content_type = part.get_content_type()
+            content_disposition = str(part.get("Content-Disposition"))
+            if "attachment" not in content_disposition:
+                body = part.get_payload(decode=True).decode()
+                email_body += body
+    else:
+        email_body = msg.get_payload(decode=True).decode()
+
+    return {
+        "Sender": sender,
+        "Recipient": recipient,
+        "Subject": subject,
+        "Date": date,
+        "Mailed-By": mailed_by,
+        "Signed-By": signed_by,
+        "Security": security,
+        "Body": email_body
+    }
+
+# Ask the user for the email text
+email_text = input("Please enter the email text: ")
+
+# Call the parse_email function with the email text
+email_info = parse_email(email_text)
+
+# Print the extracted information
+print("Sender:", email_info["Sender"])
+print("Recipient:", email_info["Recipient"])
+print("Subject:", email_info["Subject"])
+print("Date:", email_info["Date"])
+print("Mailed-By:", email_info["Mailed-By"])
+print("Signed-By:", email_info["Signed-By"])
+print("Security:", email_info["Security"])
+print("Body:")
+print(email_info["Body"])

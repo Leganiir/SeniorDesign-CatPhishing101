@@ -19,6 +19,15 @@ html, body {
 
 .Container .BodyContent {
     flex: 1 1 auto;
+    background-image: url("/static/images/logo.jpg");
+    background-position: center;
+    background-position: bottom;
+}
+
+.Container .BodyContenthelp {
+    background-image: none;
+    background: #1f2224;
+    flex: 1 1 auto;
 }
 
 .Container .footer {
@@ -200,4 +209,13 @@ html, body {
     height: 100%;
     opacity: 0;
     cursor: pointer;
+}
+
+#OutputContainer ul {
+    list-style: none
+}
+
+#OutputContainer li {
+    margin-bottom: 5px;
+    font-size: large;
 }

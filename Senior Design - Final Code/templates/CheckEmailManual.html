@@ -4,34 +4,35 @@
         <title>Catphishing101</title>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+        <link rel="icon" type="image/x-icon" href="static/images/cat.jpg">
     </head>
     <body>
         <div class="Container">
             <div class="header">
                 <h1>CatPhishing101</h1>
             </div>
-            <div class="BodyContent">
+            <div class="BodyContenthelp">
                 <div class="Operations">
                     <ul>
-                            <li><div class="Clickable" onclick="location.href='CheckEmail.html';" style="cursor: pointer;">Back</div></li>
+                        <li><div class="Clickable" onclick="location.href='CheckEmail.html';" style="cursor: pointer;">Back</div></li>
                     </ul>
                 </div>
-                <div class="UpLoaderSpace">
-                    <label for="UpLoadSpace" id="UpLoadSpace">
-                        <input type="file" accept=".txt, .eml" id="input-file" onchange="displayFileName()">
-                        <p id="filename">Drag and drop file or click to browse</p>
-                    </label>
+                <div class="InputSpace">
+                    <h2>Enter Email Header</h2>
+                    <span class="inputarea" role="textbox" name="Header" id="header" contenteditable></span>
+                    <h2>Enter Email Content</h2>
+                    <span class="inputarea2" role="textbox" name="Content" id="content" contenteditable></span>
                 </div>
                 <div class="SubmitButton">
-                    <button class="submit" id="submit" onclick="startCountdown()">Submit</button>
+                    <button class="submit" name="Submit" id="Submit" onclick="startCountdown2()">Submit</button>
                 </div>
-                <div id="CountDown" style="text-align: center;">
+                <div id="CountDown">
                     <h3 id="CountDownText">Processing...</h3>
                 </div>
                 <div id="OutputContainer">
-                    <h3>{{ result }}</h3>
-                    <h5>{{ DomainReason }}</h5>
-                    <h5>{{ GrammerReason }}</h5>
+                    <h3>{{result}}</h3>
+                    <h5>{{DomainReason}}</h5>
+                    <h5>{{GrammerReason}}</h5></li>
                 </div>
             </div>
             <div class="footer">

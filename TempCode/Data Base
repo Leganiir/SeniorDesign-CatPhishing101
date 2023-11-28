@@ -1,0 +1,52 @@
+import re
+
+# Simulated database as a dictionary (replace this with your actual database)
+database = {
+    "user1@example.com": {},
+    "user2@example.com": {},
+    "hamdanzd@mail.uc.edu": {},
+    "zeidhamdan223@gmail.com": {},
+    "zeidhamdan76@gmail.com": {},
+    "press@google.com": {},
+    "leganiir@mail.uc.edu": {}
+}
+
+def split_email(email):
+    # Define a regular expression pattern to match an email address
+    email_pattern = r'^([a-zA-Z0-9._%+-]+)@([a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$'
+
+    # Use re.match to find the parts of the email address
+    match = re.match(email_pattern, email)
+
+    if match:
+        username, domain = match.groups()
+        return username, domain
+    else:
+        return None, None
+
+def classify_email(email):
+    username, domain = split_email(email)
+
+    if username and domain:
+        if username + "@" + domain in database:
+            return "Legit email", username, domain
+        else:
+            return "Invalid email", None, None
+    else:
+        return "Invalid email address", None, None
+
+# Allow user input
+while True:
+    email = input("Enter an email address (or type 'exit' to quit): ")
+    
+    if email.lower() == "exit":
+        break
+    
+    classification, username, domain = classify_email(email)
+    
+    if classification == "Legit email":
+        print(f"Classification: {classification}")
+        print(f"Username: {username}")
+        print(f"Domain: {domain}")
+    else:
+        print(f"Classification: {classification}")
