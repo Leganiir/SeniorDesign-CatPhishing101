@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>The Phishing Pole</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+        <link rel="icon" type="image/x-icon" href="static/images/cat.jpg">
+    </head>
+    <body>
+        <div class="Container">
+            <div class="header">
+                <h1>The Phishing Pole</h1>
+            </div>
+            <div class="BodyContenthelp">
+                <div class="Guide">
+                    <h2>User Guide</h2>
+                    <h4>Using the App</h3>
+                    <p>The Phishing Pole offers two ways for users to scan emails for potentional phishing scams.<br><br>
+                        1. Manuel Input (reccommended for the non-tech savvy)<br>
+                        <br>
+                        To use manuel input, simply copy and paste who the email you recieved was sent from.<br><br> This should look like "Example@example.com" or another variation.
+                        <br>Optionally, you may upload the content of the email itself, but it is not required.
+                        <br><br>
+    
+                        2. Upload (more indepth analysis)<br><br>
+                        To use upload, you must download the email in either a .txt or .eml file, then upload to the tool for an analysis.
+                        <br><br>
+                    </p>
+                </div>
+                <div class="FAQ">
+                    <h2>FAQ</h2>
+                    <button type="button" class="FAQCollapse">What is Phishing?</button>
+                    <div class="FAQContent">
+                        <p>A Phishing email is a type of internet scam in which an attacker trys to trick a victim into thinking a fraudulent email is legitimate.
+                        </p>
+                    </div>
+                    <button type="button" class="FAQCollapse">How does The Phishing Pole work?</button>
+                    <div class="FAQContent">
+                        <p>The Phishing Pole works by collecting information from emails to help determine legitimacy.<br> We examine:<br>
+                            - The sender email.<br>
+                            - The content of the email.<br>
+                            - The email security headers. <br>
+                            We feed this information to an algorithm, which determines the likeihood of a scam email.
+                        </p>
+                    </div>
+                    <button type="button" class="FAQCollapse">Do you collect data?</button>
+                    <div class="FAQContent">
+                        <p>The Phishing Pole temporarily stores uploaded emails for examination. Emails are deleted after examination is complete.</p>
+                    </div>
+                    <button type="button" class="FAQCollapse">Can I trust The Phishing Pole?</button>
+                    <div class="FAQContent">
+                        <p>No security tool is 100% foolproof against scams.<br>
+                            The Phishing Pole can be a helpful tool to discover scams, but conduct your own independant assessment for validation. </p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="Button" onclick="location.href='index.html';" style="cursor: pointer;"><img src="{{ url_for('static', filename='images/Home.png') }}"><span>Home</span></div>
+                <div class="Button" onclick="location.href='help.html';" style="cursor: pointer;"><img src="{{ url_for('static', filename='images/help.png') }}"><span>Help</span></div>
+            </div>
+        </div>
+    </body>
+
+    <script>
+    var coll = document.getElementsByClassName("FAQCollapse");
+    var i;
+    
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.classList.toggle("FAQactive");
+        var FAQContent = this.nextElementSibling;
+        if (FAQContent.style.display === "block") {
+            FAQContent.style.display = "none";
+        } else {
+            FAQContent.style.display = "block";
+        }
+      });
+    }
+    </script>

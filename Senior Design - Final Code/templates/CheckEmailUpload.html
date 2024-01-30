@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>The Phishing Pole</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+        <link rel="icon" type="image/x-icon" href="static/images/cat.jpg">
+    </head>
+    <body>
+        <div class="Container">
+            <div class="header">
+                <h1>The Phishing Pole</h1>
+            </div>
+            <div class="BodyContenthelp">
+                <div class="Operations">
+                    <ul>
+                            <li><div class="Clickable" onclick="location.href='CheckEmail.html';" style="cursor: pointer;">Back</div></li>
+                    </ul>
+                </div>
+                <div class="UpLoaderSpace">
+                    <label for="UpLoadSpace" id="UpLoadSpace">
+                        <input type="file" accept=".txt, .eml" id="input-file" onchange="displayFileName()">
+                        <p id="filename">Drag and drop file or click to browse</p>
+                    </label>
+                </div>
+                <div class="SubmitButton">
+                    <button class="submit" id="submit" onclick="startCountdown()">Submit</button>
+                </div>
+                <div id="CountDown" style="text-align: center;">
+                    <h3 id="CountDownText">Processing...</h3>
+                </div>
+                <div id="OutputContainer">
+                    <h3>{{result}}</h3>
+                    <h5>{{DomainReason}}</h5>
+                    <ul>
+                        <li>{{DKIMReason}}</li>
+                        <li>{{SPFReason}}</li>
+                        <li>{{DMARCReason}}</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="Button" onclick="location.href='index.html';" style="cursor: pointer;"><img src="{{ url_for('static', filename='images/Home.png') }}"><span>Home</span></div>
+                <div class="Button" onclick="location.href='help.html';" style="cursor: pointer;"><img src="{{ url_for('static', filename='images/help.png') }}"><span>Help</span></div>
+            </div>
+        </div>
+        <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    </body>
